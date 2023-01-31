@@ -1,14 +1,18 @@
-const express = require("express");
+require("dotenv").config();
+require("./config");const express = require("express");
+const router = require("./routes/routes");
+const cors = require("cors");
+const { json } = require("express");
 const app = express();
 const port = process.env.PORT || 8080;
 
-app.get("/", (req, resp)=> {
-    resp.send("Success");
-})
+app.use(json());
+app.use(cors());
+app.use("/api/login", router);
 
-async function start () {
+async function start() {
     try {
-        app.listen(port, ()=> {
+        app.listen(port, () => {
             console.log("Server Started");
         })
     } catch {
