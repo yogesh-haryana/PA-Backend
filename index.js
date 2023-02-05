@@ -8,7 +8,7 @@ const port = process.env.PORT || 8080;
 
 app.use(json());
 app.use(cors());
-app.use("/api/login", router);
+app.use("/api/users", router);
 
 async function start() {
     try {
