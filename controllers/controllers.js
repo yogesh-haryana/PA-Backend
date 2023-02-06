@@ -42,4 +42,11 @@ const deleteVerifiedUserData = async(req, resp) => {
     resp.status(200);
 }
 
-module.exports = { getUsersSignUps, setUSersSignUps, setVerifiedUsers, deleteVerifiedUserData };
+const getUsersForLogin = async(req, resp) => {
+    const { username, password } = req.query;
+    const loginUser = await verifiedUsers.find({ email: username, password: password});
+    resp.status(200).json(loginUser);
+    console.log(loginUser, "function hits");
+}
+
+module.exports = { getUsersSignUps, setUSersSignUps, setVerifiedUsers, deleteVerifiedUserData, getUsersForLogin };
