@@ -44,6 +44,25 @@ const getUsersForLogin = async (req, resp) => {
   resp.status(200).json(loginUser);
 };
 
+const getVerifiedUsers = async (req, resp) => {
+  const { dept } = req.params;
+  const specificDeptUsers = await VerifiedUsers.find({ department: dept });
+  resp.status(200).json(specificDeptUsers);
+};
+
+const updateUsersInfo = async (req, resp) => {
+  const { id } = req.params;
+  const data = req.body;
+  const specificUser = await VerifiedUsers.updateOne({ _id: id }, { $set: data });
+  resp.status(200).json(specificUser);
+};
+
 module.exports = {
-  getUsersSignUps, setUSersSignUps, setVerifiedUsers, deleteVerifiedUserData, getUsersForLogin,
+  getUsersSignUps,
+  setUSersSignUps,
+  setVerifiedUsers,
+  deleteVerifiedUserData,
+  getUsersForLogin,
+  getVerifiedUsers,
+  updateUsersInfo,
 };
