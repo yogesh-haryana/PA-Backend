@@ -1,5 +1,5 @@
 const { ObjectId } = require("mongodb");
-const { SignUp, VerifiedUsers } = require("../models");
+const { SignUp, VerifiedUsers } = require("../UserModels");
 
 const getUsersSignUps = async (_, resp) => {
   const data = await SignUp.find({});

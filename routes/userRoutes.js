@@ -5,7 +5,7 @@ const {
   getUsersSignUps,
   setUSersSignUps, setVerifiedUsers, deleteVerifiedUserData,
   getUsersForLogin, getVerifiedUsers, updateUsersInfo,
-} = require("../controllers/controllers");
+} = require("../controllers/userControllers");
 
 router.route("/").get(getUsersSignUps);
 router.route("/").post(setUSersSignUps);
