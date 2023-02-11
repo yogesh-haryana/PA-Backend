@@ -61,6 +61,7 @@ const forVerifiedUsers = new mongoose.Schema({
     type: String,
   },
   designation: {
+    default: "",
     type: String,
   },
 });
