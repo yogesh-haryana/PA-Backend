@@ -2,13 +2,13 @@
 const { KRAModel } = require("../KraModels");
 
 const getAllKRAs = async (req, resp) => {
-  const request = req.body;
-  let data;
-  if (request) {
-    data = await KRAModel.find({ request });
-  } else {
-    data = await KRAModel.find({});
-  }
+  // const request = req.body;
+  // let data;
+  // if (request) {
+  //   data = await KRAModel.find({ request });
+  // } else {
+  const data = await KRAModel.find({});
+  // }
   resp.status(200).json(data);
 };
 

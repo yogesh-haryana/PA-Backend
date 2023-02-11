@@ -4,5 +4,11 @@
     "KraName": "Project Leadership",
     "KraDescription": "How well the client, projects and team is mananged, Architectural Level Expertise of the work in hand.",
     "weightage": 40
+  },
+  {
+    "designation": "Project Lead",
+    "KraName": "Project Leadership",
+    "goalName": "Achieve 95% accuracy",
+    "goalDescription": "some text here"
   }
 ]
