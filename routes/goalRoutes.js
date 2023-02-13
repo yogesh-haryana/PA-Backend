@@ -1,6 +1,8 @@
 const goalRouter = require("express").Router();
-const { getAllGoals } = require("../controllers/GoalsControllers");
+const { getAllGoalByKraName, deleteAGoalById, postGoal } = require("../controllers/GoalsControllers");
 
-goalRouter.route("/").get(getAllGoals);
+goalRouter.route("/:KraName").get(getAllGoalByKraName);
+goalRouter.route("/1/:id").delete(deleteAGoalById);
+goalRouter.route("/").post(postGoal);
 
 module.exports = { goalRouter };
