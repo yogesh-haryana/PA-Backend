@@ -5,6 +5,7 @@ const { json } = require("express");
 const router = require("./routes/userRoutes");
 const kraRouter = require("./routes/kraRoutes");
 const { goalRouter } = require("./routes/goalRoutes");
+const { SettingRouter } = require("./routes/settingRoutes");
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -14,6 +15,7 @@ app.use(cors());
 app.use("/api/users", router);
 app.use("/api/kra", kraRouter);
 app.use("/api/goals", goalRouter);
+app.use("/api/settings", SettingRouter);
 
 async function start() {
   try {

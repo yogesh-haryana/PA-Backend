@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const { GoalModel } = require("../goalModel");
 
 const getAllGoalByKraName = async (req, resp) => {
@@ -8,7 +9,6 @@ const getAllGoalByKraName = async (req, resp) => {
 
 const deleteAGoalById = async (req, resp) => {
   const _id = req.params.id;
-  console.log(req.params.id);
   await GoalModel.findByIdAndDelete({ _id });
   resp.send({
     message: "Goal deleted SuccessFully",
@@ -26,4 +26,18 @@ const postGoal = async (req, resp) => {
   });
 };
 
-module.exports = { getAllGoalByKraName, deleteAGoalById, postGoal };
+const updateGoalbyId = async (req, resp) => {
+  const { id } = req.params;
+  const data = req.body;
+  await GoalModel.findByIdAndUpdate(id, data, {
+    new: true,
+  });
+  resp.send({
+    message: "Goal Update Success",
+    status: 200,
+  });
+};
+
+module.exports = {
+  getAllGoalByKraName, deleteAGoalById, postGoal, updateGoalbyId,
+};
