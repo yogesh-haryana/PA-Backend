@@ -1,9 +1,9 @@
 /* eslint-disable no-underscore-dangle */
 const { GoalModel } = require("../goalModel");
 
-const getAllGoalByKraName = async (req, resp) => {
-  const query = req.params.KraName;
-  const data = await GoalModel.find({ KraName: query });
+const getAllGoalByKraNameAndDesig = async (req, resp) => {
+  const { query } = req;
+  const data = await GoalModel.find(query);
   resp.status(200).json(data);
 };
 
@@ -38,6 +38,19 @@ const updateGoalbyId = async (req, resp) => {
   });
 };
 
+const deleteGoalsByKraNameAndDesig = async (req, resp) => {
+  const { query } = req;
+  await GoalModel.deleteMany(query);
+  resp.send({
+    message: "All goals deleted of this designation and kraName",
+    status: 200,
+  });
+};
+
 module.exports = {
-  getAllGoalByKraName, deleteAGoalById, postGoal, updateGoalbyId,
+  getAllGoalByKraNameAndDesig,
+  deleteAGoalById,
+  postGoal,
+  updateGoalbyId,
+  deleteGoalsByKraNameAndDesig,
 };
