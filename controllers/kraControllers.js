@@ -80,10 +80,17 @@ const updateKraById = async (req, resp) => {
   }
 };
 
+const getKRAsbyDeptAndDesig = async (req, resp) => {
+  const { query } = req;
+  const data = await KRAModel.find(query);
+  resp.status(200).json(data);
+};
+
 module.exports = {
   getAllKRAs,
   getKRAsByDesignation,
   addNewKRA,
   deleteKRAbyId,
   updateKraById,
+  getKRAsbyDeptAndDesig,
 };

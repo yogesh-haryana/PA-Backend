@@ -5,6 +5,10 @@ const settingSachema = new mongoose.Schema({
     required: true,
     type: Boolean,
   },
+  fy: {
+    required: true,
+    type: Number,
+  },
 });
 
 const ToggleSetting = mongoose.model("setting", settingSachema);
